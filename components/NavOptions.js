@@ -5,6 +5,7 @@ import tw from "tailwind-react-native-classnames"
 import {Icon} from "react-native-elements"
 import {useNavigation} from "@react-navigation/native"
 
+
 const data = [
     {
         id:"123",
@@ -20,8 +21,8 @@ const data = [
     }
 ]
 
-const NavOptions = () => {
-  const navigation = useNavigation();
+const NavOptions = ({navigation}) => {
+  
   return (
     <FlatList
         data={data}

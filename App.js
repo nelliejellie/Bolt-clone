@@ -13,24 +13,24 @@ export default function App() {
   const Stack = createStackNavigator();
   return (
     <Provider store={store}>
-      <NavigationContainer>
         <SafeAreaProvider>
           <View style={styles.container}>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen}
-              options={{
-                headerShown: false,
-              }}
-            />
-            <Stack.Screen name="Map" component={MapScreen} 
-              options={{
-                headerShown: false,
-              }}
-            />
-          </Stack.Navigator>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="HomeScreen" component={HomeScreen}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen name="MapScreen" component={MapScreen} 
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
           </View>  
         </SafeAreaProvider>
-      </NavigationContainer>
     </Provider>
     
   );

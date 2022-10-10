@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import tw from "tailwind-react-native-classnames"
 import NavOptions from '../components/NavOptions'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={tw`h-full p-5`}>
         <View style={tw``}>
@@ -18,7 +18,7 @@ const HomeScreen = () => {
                 }}
             />
         </View>
-        <NavOptions/>
+        <NavOptions navigation={navigation}/>
     </SafeAreaView>
   )
 }
