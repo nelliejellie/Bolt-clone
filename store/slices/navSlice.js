@@ -12,6 +12,7 @@ export const navSlice = createSlice({
     reducer:{
         setOrigin: (state, action) =>{
             state.origin = action.payload
+            console.log("yeah")
         },
         setDestination: (state, action) =>{
             state.origin = action.payload

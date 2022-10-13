@@ -4,8 +4,11 @@ import tw from "tailwind-react-native-classnames"
 import NavOptions from '../components/NavOptions'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import {GOOGLE_MAPS_APIKEY} from "@env"
+import { useDispatch } from 'react-redux'
+import {setDestination, setOrigin} from "../store/slices/navSlice"
 
 const HomeScreen = ({navigation}) => {
+    const dispatch = useDispatch();
   return (
     <SafeAreaView style={tw`h-full p-5`}>
         <View style={tw``}>
@@ -20,7 +23,36 @@ const HomeScreen = ({navigation}) => {
                 }}
             />
         </View>
-        <NavOptions navigation={navigation}/>
+        <GooglePlacesAutocomplete 
+            placeholder='where from'
+            styles={{
+                container:{
+                    flex:0,
+                    marginLeft:10,
+                    marginRight:10
+                },
+                textInput:{
+                    fontSize: 18
+                }
+            }}
+            onPress={(data, details = null) => {
+                dispatch(setOrigin({
+                    location: "illupeju",
+                    description: "fresh"
+                }));
+                dispatch(setDestination(null))
+            }}
+            query={{
+                key: GOOGLE_MAPS_APIKEY,
+                language: "en"
+            }}
+            enablePoweredByContainer={false}
+            nearbyPlacesAPI='GooglePlacesSearch'
+            debounce={400}
+            fetchDetails={true}
+            returnKeyType={"search"}
+        />
+        <NavOptions navigation={navigation}/>  
     </SafeAreaView>
   )
 }
