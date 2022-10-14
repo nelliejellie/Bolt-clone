@@ -1,14 +1,19 @@
 import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 import tw from "tailwind-react-native-classnames"
+import Map from '../components/Map'
+
 
 const MapScreen = () => {
   return (
-    <SafeAreaView style={tw`h-full p-5`}>
-      <View>
-        <Text>MapScreen</Text>
+    <View>
+      <Text>MapScreen</Text>
+      <View style={tw`h-1/2`}>
+       <Map /> 
       </View>
-    </SafeAreaView>
+
+      <View style={tw`h-1/2`}></View>
+    </View>
   )
 }
 

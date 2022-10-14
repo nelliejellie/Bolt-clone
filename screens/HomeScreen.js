@@ -4,11 +4,12 @@ import tw from "tailwind-react-native-classnames"
 import NavOptions from '../components/NavOptions'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import {GOOGLE_MAPS_APIKEY} from "@env"
-import { useDispatch } from 'react-redux'
-import {setDestination, setOrigin} from "../store/slices/navSlice"
+import { useDispatch, useSelector } from 'react-redux'
+import {selectDestination, setDestination, setOrigin} from "../store/slices/navSlice"
 
 const HomeScreen = ({navigation}) => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+//   const seletor = useSelector(selectDestination)
   return (
     <SafeAreaView style={tw`h-full p-5`}>
         <View style={tw``}>
@@ -36,9 +37,10 @@ const HomeScreen = ({navigation}) => {
                 }
             }}
             onPress={(data, details = null) => {
+                console.log(details.geometry.location)
                 dispatch(setOrigin({
-                    location: "illupeju",
-                    description: "fresh"
+                    location: details.geometry.location,
+                    description: data.description
                 }));
                 dispatch(setDestination(null))
             }}

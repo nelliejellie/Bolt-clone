@@ -29,7 +29,7 @@ const NavOptions = ({navigation}) => {
         horizontal
         keyExtractor={item => item.id}
         renderItem = {({item}) =>(
-            <TouchableOpacity style={tw`bg-white p-2 pl-6 pb-8 pt-4 m-2 w-[50%] h-60`}
+            <TouchableOpacity style={tw`bg-white p-2 pl-6 pb-8 pt-4 m-2 h-60`}
                 onPress={() => navigation.navigate(item.screen)}
             >
                 <View>
