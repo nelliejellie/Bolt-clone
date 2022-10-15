@@ -1,9 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    origin: null,
-    destination: 10,
-    travelTimeInformation: null 
+    origin: {
+        description: "",
+        location:{
+            lat: 0,
+            lng:0
+        }
+    },
+    destination: {
+        location:{
+            lat: 0,
+            lng:0
+        }
+    },
+    travelTimeInformation: {
+        description:""
+    }
 }
 
 export const navSlice = createSlice({
@@ -11,14 +24,13 @@ export const navSlice = createSlice({
     initialState,
     reducers :{
         setOrigin: (state, action) =>{
-            console.log(state)
             state.origin = action.payload
         },
         setDestination: (state, action) =>{
-            state.origin = action.payload
+            state.destination = action.payload
         },
         setTravelTimeInformation: (state, action) =>{
-            state.origin = action.payload
+            state.travelTimeInformation = action.payload
         }
     }
 })
@@ -26,8 +38,8 @@ export const navSlice = createSlice({
 export const {setOrigin,setDestination,setTravelTimeInformation} = navSlice.actions;
 
 //selectors
-export const selectOrigin = () => state.new.origin;
-export const selectDestination = () => state.new.destination;
-export const selectTravelTimeInformation = () => state.new.travelTimeInformation;
+export const selectOrigin = (state) => state.nav.origin;
+export const selectDestination = (state) => state.nav.destination;
+export const selectTravelTimeInformation = (state) => state.nav.travelTimeInformation;
 
 export default navSlice.reducer;
