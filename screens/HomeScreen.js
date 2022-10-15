@@ -33,15 +33,15 @@ const HomeScreen = ({navigation}) => {
                     marginRight:10
                 },
                 textInput:{
-                    fontSize: 18
-                }
+                    fontSize: 18,
+                    backgroundColor:'#DDDDDF'
+                },
             }}
             onPress={(data, details = null) => {
                 dispatch(setOrigin({
                     location: details.geometry.location,
                     description: data.description
                 }));
-                dispatch(setDestination(null))
             }}
             query={{
                 key: GOOGLE_MAPS_APIKEY,
