@@ -50,7 +50,7 @@ const RideOptionsCard = () => {
         keyExtractor={(item)=> item.id}
         renderItem={({item})=>(
           <TouchableOpacity
-            style={tw`flex flex-row items-center justify-between px-5 ${item.id === selected?.id && `bg-gray-200`}`}
+            style={tw`flex flex-row items-center justify-between pr-3 pl-3 ${item.id === selected?.id && `bg-gray-200`}`}
             onPress={()=> setSelected(item)}
           >
             <Image
