@@ -56,10 +56,12 @@ const NavigateCard = () => {
             </View>
             <NavFavorites/>
         </View>
-        <View style={tw`flex-1 flex-row justify-center py-4`}>
-            <TouchableOpacity style={tw`flex flex-row justify-around items-center bg-green-300 w-48 px-4 py-3 rounded-full`}>
+        <View style={tw`flex-1 flex-row justify-center pt-8`}>
+            <TouchableOpacity style={tw`flex flex-row justify-around items-center bg-green-300 w-48 px-4 p-3 rounded-full`}
+                onPress={()=> navigation.navigate("RideOptionsCard")}
+            >
                 <Icon name="car" type="font-awesome" color="black" sixe={16}/>
-                <Text style={tw`text-black font-bold text-center`}>Rides</Text>
+                <Text style={tw`text-black font-bold text-center`}>Select Ride Options</Text>
             </TouchableOpacity>
         </View>
     </SafeAreaView>
